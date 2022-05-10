@@ -3,10 +3,13 @@ import {
   Box,
   Typography,
   TextField,
-  Button,
+  Button
 } from '@mui/material';
 
-const Register = () => {
+const Edit4Inputs = (props) => {
+
+  const { description, textfield1, textfield2, textfield3, textfield4 } = props;
+
   return (
     <Box
       display="flex"
@@ -20,56 +23,29 @@ const Register = () => {
         component="h2"
         sx={{m: 2}}
       >
-        Registrar conta
+        {description}
       </Typography>
 
       <TextField 
-        // id="outlined-basic"
-        label="Nome" 
+        label={textfield1}
         variant="outlined"
         size='small'
         sx={{mb: 1}}
       />
       <TextField 
-        // id="outlined-basic" 
-        label="Sobrenome" 
+        label={textfield2} 
         variant="outlined"
         size='small'
         sx={{mb: 1}}
       />
       <TextField 
-        // id="outlined-basic" 
-        label="Data de Nascimento" 
+        label={textfield3} 
         variant="outlined"
         size='small'
         sx={{mb: 1}}
       />
       <TextField 
-        // id="outlined-basic" 
-        label="Sexo" 
-        variant="outlined"
-        size='small'
-        sx={{mb: 1}}
-      />
-      <TextField 
-        // id="outlined-basic" 
-        label="E-mail" 
-        variant="outlined"
-        size='small'
-        sx={{mb: 1}}
-      />
-      <TextField 
-        // id="outlined-basic" 
-        label="Senha"
-        type='password' 
-        variant="outlined"
-        size='small'
-        sx={{mb: 1}}
-      />
-      <TextField 
-        // id="outlined-basic" 
-        label="Insira senha novamente" 
-        type='password' 
+        label={textfield4}
         variant="outlined"
         size='small'
         sx={{mb: 3}}
@@ -81,10 +57,10 @@ const Register = () => {
         sx={{mb: 1}}
         style={{color: 'white'}}
       >
-        Registrar
+        Salvar
       </Button>
     </Box>
   )
 }
 
-export default Register
+export default Edit4Inputs;

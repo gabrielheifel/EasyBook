@@ -26,14 +26,12 @@ const Login = () => {
         </Typography>
 
         <TextField 
-          id="outlined-basic" 
           label="E-mail" 
           variant="outlined"
           size='small'
           sx={{mb: 2}}
         />
         <TextField 
-          id="outlined-basic" 
           type='password' 
           label="Senha" 
           variant="outlined"
@@ -46,7 +44,7 @@ const Login = () => {
           size="small"
           sx={{mb: 1}}
         >
-          <Link to='/' style={{textDecoration: 'none', color: '#fff'}}>
+          <Link to='/edit-info' style={{textDecoration: 'none', color: '#fff'}}>
             Login
           </Link>
         </Button>

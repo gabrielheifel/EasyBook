@@ -31,13 +31,18 @@ const Categories = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Categoria 1', 
-          'Categoria 2', 
-          'Categoria 3', 
-          'Categoria 4',
-          'Categoria 5'
+        {['Administração', 
+          'Artes e Fotografia', 
+          'Autoajuda', 
+          'Biografias',
+          'História',
+          'Psicologia',
+          'Religião',
+          'Terror e Suspense',
+          'Mais Vendidos',
+          'Lançamentos'
         ].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem button key={text} >
             <ListItemText primary={text} />
           </ListItem>
         ))}
