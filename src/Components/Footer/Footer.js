@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 
 
+
 const Footer = () => {
   return (
     <>
@@ -12,8 +13,14 @@ const Footer = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        mn={0}
-        sx={{ mt: 3.4, width: '100%', height: 80, bgcolor: '#343A40'}} 
+        sx={{ 
+          mt: 4, 
+          width: '100%', 
+          height:'100px', 
+          bgcolor: '#343A40', 
+          position: 'fixed', 
+          bottom: '0'
+        }}
       >
         <Typography
           variant="h4" 
