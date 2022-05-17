@@ -1,0 +1,64 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Book One",
+      "price": "29.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 2,
+      "title": "Book Two",
+      "price": "49.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 3,
+      "title": "Book Three",
+      "price": "129.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 4,
+      "title": "Book Four",
+      "price": "19.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 5,
+      "title": "Book Five",
+      "price": "109.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 6,
+      "title": "Book Six",
+      "price": "190.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 7,
+      "title": "Book Seven",
+      "price": "190.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 8,
+      "title": "Book Eight",
+      "price": "109.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 9,
+      "title": "Book Nine",
+      "price": "190.90",
+      "imageUrl": ""
+    },
+    {
+      "id": 10,
+      "title": "Book Ten",
+      "price": "190.90",
+      "imageUrl": ""
+    }
+  ]
+}

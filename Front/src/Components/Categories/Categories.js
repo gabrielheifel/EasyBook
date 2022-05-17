@@ -12,8 +12,8 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 const Categories = () => {  
-  
   const [state, setState] = useState(false);
+  const [selectCategorie, setSelectCategorie] = useState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -22,6 +22,11 @@ const Categories = () => {
 
     setState({ ...state, [anchor]: open });
   };
+
+  const handleCategorie = textContent => {
+    // setSelectCategorie(e.target.anchor);
+    console.log(textContent)
+  }
 
   const list = (anchor) => (
     <Box
@@ -42,7 +47,7 @@ const Categories = () => {
           'Mais Vendidos',
           'Lançamentos'
         ].map((text, index) => (
-          <ListItem button key={text} >
+          <ListItem button key={index} >
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -72,6 +77,8 @@ const Categories = () => {
             </AppBar>
           </Box>      
           <Drawer
+            onClick={handleCategorie}
+            value={anchor}
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}

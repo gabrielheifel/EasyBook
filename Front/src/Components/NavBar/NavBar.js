@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../contexts/auth';
 // import { makeStyles } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,9 +11,11 @@ import IconButton from '@mui/material/IconButton';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SearchInput from '../SearchInput/SearchInput';
-import Logo from '../../Images/logo.png';
+import Logo from '../../images/logo.png';
 
 const NavBar = (props) => {
+  const navigate = useNavigate();
+  const {signed} = useContext(AuthContext);
 
   return (
     <>
@@ -22,11 +25,9 @@ const NavBar = (props) => {
             variant='dense'
             sx={{p: 0.5, display: 'flex', justifyContent: 'space-between'}}
           >
-            <Link to='/'>
-              <Button sx={{p:0}}>
-                <img src={Logo} alt="easy book" style={{height: '35px'}} />
-              </Button>
-            </Link>
+            <Button sx={{p:0}} onClick={() => navigate('/')}>
+              <img src={Logo} alt="easy book" style={{height: '35px'}} />
+            </Button>
             {props.isUser 
               ? <SearchInput />
               : <Typography variant="overline">
@@ -34,42 +35,68 @@ const NavBar = (props) => {
                 </Typography>
             }
             {props.isUser
-              ? <div>
-                  <Button 
-                    variant='text' 
-                    color="inherit" 
-                    size="small"
-                    sx={{marginRight: '5px'}}
-                  >
-                    <Link to='/register' style={{textDecoration: 'none', color: '#fff'}}>
-                      Registrar
-                    </Link>
-                  </Button>
-                  <Button 
-                    variant='contained'
-                    color="inherit" 
-                    size="small"
-                    sx={{ marginRight: '10px'}}
-                  >
-                    <Link to='/login' style={{textDecoration: 'none', color:'#000'}}>
-                      Login
-                    </Link>
-                  </Button>
-                  <IconButton color="inherit" >
-                    <FavoriteBorderIcon/>
-                  </IconButton>
-                  <IconButton color="inherit" >
-                    <ShoppingCartOutlinedIcon/>
-                  </IconButton>
-                </div>
+              ? signed
+                  ? <div>
+                      <Button 
+                        variant='text' 
+                        color="inherit" 
+                        size="small"
+                        sx={{marginRight: '5px'}}
+                        onClick={() => navigate('/')}
+                      >
+                        Sair
+                      </Button>
+                      <Button 
+                        variant='contained'
+                        color="inherit" 
+                        size="small"
+                        sx={{ marginRight: '10px'}}
+                        style={{textDecoration: 'none', color:'#000'}}
+                        onClick={() => navigate('/')}
+                      >
+                        Minha Conta  
+                      </Button>
+                      <IconButton color="inherit" >
+                        <FavoriteBorderIcon/>
+                      </IconButton>
+                      <IconButton color="inherit" >
+                        <ShoppingCartOutlinedIcon/>
+                      </IconButton>
+                    </div>
+                  : <div>
+                      <Button 
+                        variant='text' 
+                        color="inherit" 
+                        size="small"
+                        sx={{marginRight: '5px'}}
+                        onClick={() => navigate('/register')}
+                      >
+                        Registrar
+                      </Button>
+                      <Button 
+                        variant='contained'
+                        color="inherit" 
+                        size="small"
+                        sx={{ marginRight: '10px'}}
+                        style={{textDecoration: 'none', color:'#000'}}
+                        onClick={() => navigate('/login')}
+                      >
+                        Login
+                      </Button>
+                      <IconButton color="inherit" >
+                        <FavoriteBorderIcon/>
+                      </IconButton>
+                      <IconButton color="inherit" >
+                        <ShoppingCartOutlinedIcon/>
+                      </IconButton>
+                    </div>
               : <Button 
                   variant='text' 
                   color="inherit" 
                   size="small"
+                  onClick={() => navigate('/')}
                 >
-                  <Link to='/' style={{textDecoration: 'none', color: '#fff'}}>
-                    Sair
-                  </Link>
+                  Sair
                 </Button> 
             }
           </Toolbar>

@@ -6,8 +6,8 @@ import {
   TextField,
   Button,
 } from '@mui/material';
-import NavBar from '../../Components/NavBar/NavBar';
-import Categories from '../../Components/Categories/Categories';
+import NavBar from '../../components/NavBar/NavBar';
+import Categories from '../../components/Categories/Categories';
 
 
 const Register = () => {

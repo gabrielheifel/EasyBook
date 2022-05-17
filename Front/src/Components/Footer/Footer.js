@@ -17,9 +17,7 @@ const Footer = () => {
           mt: 4, 
           width: '100%', 
           height:'100px', 
-          bgcolor: '#343A40', 
-          position: 'fixed', 
-          bottom: '0'
+          bgcolor: '#343A40'
         }}
       >
         <Typography
