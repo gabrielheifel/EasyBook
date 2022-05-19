@@ -15,10 +15,10 @@ import Logo from '../../images/logo.png';
 
 const NavBar = (props) => { 
   const navigate = useNavigate();
-  const {signed} = useContext(AuthContext);
+  const {signed, logout} = useContext(AuthContext);
 
-  const handleOut = () => {
-    // setSigned(false)
+  const handleLogout = () => {
+    logout();
   }
 
   return (
@@ -30,7 +30,7 @@ const NavBar = (props) => {
             sx={{p: 0.5, display: 'flex', justifyContent: 'space-between'}}
           >
             <Button sx={{p:0}} onClick={() => navigate('/')}>
-              <img src={Logo} alt="easy book" style={{height: '35px'}} />
+              <img src={Logo} alt="easy book logo" style={{height: '35px'}} />
             </Button>
             {props.isUser 
               ? <SearchInput />
@@ -46,7 +46,7 @@ const NavBar = (props) => {
                         color="inherit" 
                         size="small"
                         sx={{marginRight: '5px'}}
-                        onClick={handleOut}
+                        onClick={handleLogout}
                       >
                         Sair
                       </Button>
@@ -98,7 +98,7 @@ const NavBar = (props) => {
                   variant='text' 
                   color="inherit" 
                   size="small"
-                  onClick={() => navigate('/')}
+                  onClick={handleLogout}
                 >
                   Sair
                 </Button> 

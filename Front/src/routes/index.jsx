@@ -14,14 +14,22 @@ import ProductPage from '../pages/ProductPage/ProductPage';
 const routes = () => {
 
   const PrivateUser = ({children}) => {
-    const { signed } = useContext(AuthContext);
+    const { signed, loading } = useContext(AuthContext);
+    
+    if(loading) {
+      return <div className='loading'>Carregando...</div>
+    }
     if(!signed) {
       return <Navigate to='/login' />
     }
     return children;
   }
   const PrivateAdmin = ({children}) => {
-    const { isAdmin } = useContext(AuthContext);
+    const { isAdmin, loading } = useContext(AuthContext);
+    
+    if(loading) {
+      return <div className='loading'>Carregando...</div>
+    }
     if(!isAdmin) {
       return <Navigate to='/' />
     }

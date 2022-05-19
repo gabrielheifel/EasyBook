@@ -1,3 +1,11 @@
+.leftArrow,
+.rightArrow {
+  opacity: 0;
+}
+.box-carousel:hover .leftArrow,
+.box-carousel:hover .rightArrow {
+  opacity: 1;
+}
 .carousel::-webkit-scrollbar {
   display: none;
 }

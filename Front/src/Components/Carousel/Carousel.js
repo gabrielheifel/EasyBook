@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import {
   Typography,
   Button,
-  Box
+  Box,
+  CircularProgress
 } from '@mui/material';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
@@ -11,10 +12,11 @@ import './index.css';
 
 const Carousel = (props) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const carousel = useRef(null);
 
   const handleLeftArrow = e => {
-    e.preventDefault();
+    e.preventDefault(); 
     carousel.current.scrollLeft -= carousel.current.offsetWidth;
   };
 
@@ -24,37 +26,42 @@ const Carousel = (props) => {
   };
     
   useEffect(() => {
+    setLoading(true);
     fetch('http://localhost:5000/books')
       .then((response) => response.json())
       .then(setData);
-      console.log(data)
+    setLoading(false)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <Box 
+        className='box-carousel'
         style={{
-          maxWidth: '90vw',
+          maxWidth: '95vw',
           height: 320,
           flex: 1, 
           alignItems: 'flex-start',
-          padding: 15
+          padding: 15,
+          marginBottom: 15
         }}
-      >
-        <Typography variant="h5" component="div">
-          {props.title}
-        </Typography>
-        <div>
+        >
+          <Typography variant="h5" component="div">
+            {props.title}
+          </Typography>
           <Button 
+            className='leftArrow'
             color="inherit"
             onClick={handleLeftArrow}
             sx={{
               position: 'absolute',
-              left: 20,
+              left: 0,
               minWidth: 0,
               width: 30,
               height: 260,
+              zIndex: 99,
+              transition: '.5s',
               backgroundColor: 'rgba(0,0,0,0.1)',
               '&:hover': {
                 backgroundColor: 'rgba(0,0,0,0.4)',
@@ -64,14 +71,17 @@ const Carousel = (props) => {
             <ArrowBackIosOutlinedIcon/>
           </Button>
           <Button 
+            className='rightArrow'
             color="inherit"
             onClick={handleRightArrow}
             sx={{
               position: 'absolute',
-              right: 20,
+              right: 0,
               minWidth: 0,
               width: 30,
               height: 260,
+              zIndex: 99,
+              transition: '.5s',
               backgroundColor: 'rgba(0,0,0,0.1)',
               '&:hover': {
                 backgroundColor: 'rgba(0,0,0,0.4)',
@@ -80,24 +90,29 @@ const Carousel = (props) => {
           >
             <ArrowForwardIosOutlinedIcon/>
           </Button>
-        </div>
-        <Box
-          className='carousel' 
-          ref={carousel}
-          sx={{
-            display: 'flex',
-            overflowX: 'auto',
-            scrollBehavior: 'smooth'
-          }}
-        >
-          {data.map((item, index) => {
-            return(
-              <CardProduct key={index} book={item} />
-            )
-          })}
-        </Box>
-      </Box>
         
+        {
+          loading ? (
+            <CircularProgress />
+          ) : (
+            <Box
+              className='carousel' 
+              ref={carousel}
+              sx={{
+                display: 'flex',
+                overflowX: 'auto',
+                scrollBehavior: 'smooth'
+              }}
+            >
+              {data.map((item, index) => {
+                return(
+                  <CardProduct key={index} book={item} />
+                )
+              })}
+            </Box>
+          )
+        }
+      </Box>
     </>
   )
 }

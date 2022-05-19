@@ -77,5 +77,19 @@
       "name": "GH",
       "email": "gh@gmail.com"
     }
+  ],
+  "sessions": [
+    {
+      "email": "gabriel@gmail.com",
+      "password": "secret"
+    },
+    {
+      "email": "heifel@gmail.com",
+      "password": "123"
+    },
+    {
+      "email": "admin",
+      "password": "admin"
+    }
   ]
 }
