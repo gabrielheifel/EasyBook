@@ -60,5 +60,22 @@
       "price": "190.90",
       "imageUrl": ""
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Gabriel",
+      "email": "gabriel@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Heifel",
+      "email": "heifel@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "GH",
+      "email": "gh@gmail.com"
+    }
   ]
 }

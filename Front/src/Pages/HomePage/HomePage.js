@@ -6,7 +6,7 @@ import {
 import NavBar from '../../components/NavBar/NavBar';
 import Categories from '../../components/Categories/Categories';
 import Carousel from '../../components/Carousel/Carousel';
-import ProductPage from '../ProductPage/ProductPage';
+import Footer from '../../components/Footer/Footer';
  
 const Main = () => {
   return (
@@ -21,19 +21,19 @@ const Main = () => {
           alignItems='center'
           sx={{ p: 4}} 
         >
-          <ProductPage />
-          {/* <Box 
+          <Box 
             sx={{
               width: 600,
               height: 180,
               backgroundColor: 'orange'
             }}
-          /> */}
-          {/* <Carousel title={'Lançamentos'}/> */}
-          {/* <Carousel title={'Mais Vendidos'}/> */}
-          {/* <Carousel title={'Recomendados'}/> */}
+          />
+          <Carousel title={'Lançamentos'}/>
+          <Carousel title={'Mais Vendidos'}/>
+          <Carousel title={'Recomendados'}/>
         </Box>
       </Container>
+      <Footer position='static'/>
     </div>
   );
 }

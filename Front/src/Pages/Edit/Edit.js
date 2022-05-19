@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import NavBar from '../../components/NavBar/NavBar';
 import Categories from '../../components/Categories/Categories';
+import Footer from '../../components/Footer/Footer';
 
 const Inputs4 = (props) => {
   const { description, textfield1, textfield2, textfield3, textfield4 } = props;
@@ -73,6 +74,7 @@ const Inputs4 = (props) => {
           </Box>
         </Box>
       </Container>
+      <Footer />
     </>
   )
 }
@@ -147,6 +149,7 @@ const Inputs2 = (props) => {
           </Box>
         </Box>
       </Container>
+      <Footer />
     </>
   )
 }

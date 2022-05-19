@@ -13,9 +13,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SearchInput from '../SearchInput/SearchInput';
 import Logo from '../../images/logo.png';
 
-const NavBar = (props) => {
+const NavBar = (props) => { 
   const navigate = useNavigate();
   const {signed} = useContext(AuthContext);
+
+  const handleOut = () => {
+    // setSigned(false)
+  }
 
   return (
     <>
@@ -42,7 +46,7 @@ const NavBar = (props) => {
                         color="inherit" 
                         size="small"
                         sx={{marginRight: '5px'}}
-                        onClick={() => navigate('/')}
+                        onClick={handleOut}
                       >
                         Sair
                       </Button>
@@ -52,7 +56,7 @@ const NavBar = (props) => {
                         size="small"
                         sx={{ marginRight: '10px'}}
                         style={{textDecoration: 'none', color:'#000'}}
-                        onClick={() => navigate('/')}
+                        onClick={() => navigate('/login')}
                       >
                         Minha Conta  
                       </Button>

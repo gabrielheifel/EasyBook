@@ -1,22 +1,40 @@
 import React, { createContext, useState } from 'react';
-import {signInServices} from '../services/auth';
+import { useNavigate } from 'react-router-dom';
+// import { signInServices } from '../services/auth';
 
 const AuthContext = createContext(); 
 
 export const AuthProvider = ({children}) => {
-  // const [token, setToken] = useState('');  
-  const [user, setUser] = useState(null); 
-  
-  const signIn = async() => {
-    const response = await signInServices();
-    console.log(response)
+  const navigate = useNavigate();
+  // const [token, setToken] = useState();
+  const [user, setUser] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false)
 
-    // console.log('login auth', {email, password})
-    // setUser({id:'12', email})
-  };
+  const login = (email, password) => {
+    console.log('login', {email, password})
+    console.log('isAdmin:', isAdmin);
+
+    if(password === 'secret') {
+      setUser({id: '123', email});
+      setIsAdmin(false);
+      navigate('/edit-info');
+    }
+    if(email === 'admin' && password === 'admin') {
+      setUser({id: '1', email});
+      setIsAdmin(true);
+      navigate('/admin');
+    }
+  }
+  
+  const logout = () =>{
+    console.log('logout');
+    setUser(null);
+    setIsAdmin(false)
+    navigate('/');
+  }
 
   return (
-    <AuthContext.Provider value={{signed: !!user, user, signIn}}>
+    <AuthContext.Provider value={{signed:!!user, user, isAdmin, login, logout}}>
       {children}
     </AuthContext.Provider>
   )

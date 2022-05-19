@@ -1,10 +1,7 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Footer from './components/Footer/Footer';
 import Rotes from './routes';
-// import './mock';
-// import {AuthProvider} from './contexts/auth';
-import AuthContext from './contexts/auth';
+import {AuthProvider} from './contexts/auth';
 
 const theme = createTheme({
   palette: {
@@ -25,12 +22,9 @@ function App() {
   return (
     <div className='App'>
       <ThemeProvider theme={theme}>
-        {/* <AuthProvider> */}
-          <AuthContext.Provider value={{signIn: true}}>
-            <Rotes />
-            <Footer />
-          </AuthContext.Provider>
-        {/* </AuthProvider> */}
+        <AuthProvider>
+          <Rotes />
+        </AuthProvider>
       </ThemeProvider>
     </div>
   );

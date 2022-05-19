@@ -6,6 +6,7 @@ import {
   Grid
 } from '@mui/material'
 import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer';
 
 const Adm = () => {
   return (
@@ -69,6 +70,7 @@ const Adm = () => {
           </Grid>
         </Box>
       </Container>
+      <Footer position='fixed' />
     </>
   )
 }

@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import axios from '../../utils/axios';
-import { signInServices } from '../../services/auth';
 import AuthContext from '../../contexts/auth';
 import { 
   Box,
@@ -12,21 +10,21 @@ import {
 } from '@mui/material';
 import NavBar from '../../components/NavBar/NavBar';
 import Categories from '../../components/Categories/Categories';
+import Footer from '../../components/Footer/Footer';
 
 const Login = () => {
   const navigate = useNavigate(); 
-  const {signed, signIn} = useContext(AuthContext);
+  const {login} = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const handleSubmit = async() => {
-  const handleLogin = async() => {
-    // e.preventDefault();
-    // console.log('first', {email, password}, signed)
-    // signIn(email, password);
-    const resp = await signInServices();
-    console.log(resp)
-    // signIn();
+  const handleSubmit = e => {
+  // const handleLogin = async(e) => {
+    e.preventDefault();
+    console.log("submit", {email, password})
+    login(email, password);
+
+    // navigate('/edit-info');
   }
 
   return (
@@ -37,16 +35,16 @@ const Login = () => {
         <Box 
           display="flex"
           justifyContent="center"
-          sx={{ bgcolor: 'white', p: 4 }} 
+          sx={{ p:4 }} 
         >    
-          {/* <form onSubmit={handleSubmit}> */}
-          <form>
+          <form onSubmit={handleSubmit}>
+          {/* <form> */}
             <Box
               display="flex"
               flexDirection="column"
               alignItems="center"
               justifyContent="center"
-              sx={{width: 700, height: 400, p: 15, pt: 6 }}
+              sx={{width: 700, height: 350, p:15, pt:6, pb:6 }}
             >
               <Typography 
                 variant="h4" 
@@ -77,9 +75,9 @@ const Login = () => {
                 variant='contained'
                 size="small"
                 sx={{mb: 1}}
-                // onClick={() => navigate('/administrator')}
+                // onClick={() => navigate('/edit-info')}
                 type='submit'
-                onClick={handleLogin}
+                // onClick={handleSubmit}
               >
                 Login
               </Button>
@@ -103,6 +101,7 @@ const Login = () => {
           </form>
         </Box>
       </Container>
+      <Footer position='fixed'/>
     </div>
   )
 }

@@ -8,25 +8,31 @@ import {
 } from '@mui/material';
 import NavBar from '../../components/NavBar/NavBar';
 import Categories from '../../components/Categories/Categories';
+import Footer from '../../components/Footer/Footer';
 
 
 const Register = () => {
   return (
     <>
-    <NavBar color='primary' isUser={true} />
+      <NavBar color='primary' isUser={true} />
       <Categories color='secundary' />
       <Container maxWidth="xl">
         <Box 
           display="flex"
           justifyContent="center"
-          sx={{ bgcolor: 'white', p: 4 }} 
+          sx={{p: 4}} 
         >
           <Box
             display="flex"
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            sx={{width: 700, height: 400, p: 15, pt: 6, pb: 6 }}
+            sx={{
+              width: 700, 
+              height: 400, 
+              p: 15, pt: 6, pb: 6,
+              mt: 2
+            }}
           >
             <Typography 
               variant="h4" 
@@ -99,6 +105,7 @@ const Register = () => {
           </Box>
         </Box>
       </Container>
+      <Footer/>
     </>
   )
 }
