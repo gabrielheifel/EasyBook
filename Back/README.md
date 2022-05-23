@@ -1,4 +1,4 @@
-<p align="center">Sistema de produtos favoritos</p>
+<h1 align="center">Sistema de produtos</h1>
 
 ### Pré-requisitos
 
