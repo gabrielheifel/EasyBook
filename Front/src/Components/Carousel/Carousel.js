@@ -11,9 +11,9 @@ import CardProduct from '../CardProduct/CardProduct';
 import './index.css';
 
 const Carousel = (props) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
   const carousel = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   const handleLeftArrow = e => {
     e.preventDefault(); 
@@ -29,7 +29,7 @@ const Carousel = (props) => {
     setLoading(true);
     fetch('http://localhost:5000/books')
       .then((response) => response.json())
-      .then(setData);
+      .then(setProducts);
     setLoading(false)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -59,7 +59,7 @@ const Carousel = (props) => {
               left: 0,
               minWidth: 0,
               width: 30,
-              height: 260,
+              height: 285,
               zIndex: 99,
               transition: '.5s',
               backgroundColor: 'rgba(0,0,0,0.1)',
@@ -79,7 +79,7 @@ const Carousel = (props) => {
               right: 0,
               minWidth: 0,
               width: 30,
-              height: 260,
+              height: 285,
               zIndex: 99,
               transition: '.5s',
               backgroundColor: 'rgba(0,0,0,0.1)',
@@ -104,9 +104,9 @@ const Carousel = (props) => {
                 scrollBehavior: 'smooth'
               }}
             >
-              {data.map((item, index) => {
+              {products.map((product) => {
                 return(
-                  <CardProduct key={index} book={item} />
+                  <CardProduct key={product.id} product={product} />
                 )
               })}
             </Box>

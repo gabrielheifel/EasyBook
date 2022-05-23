@@ -14,13 +14,19 @@ const theme = createTheme({
     white: {
       main: '#ffffff'
     },
+    orange: {
+      main: '#DB8F00'
+    },
+    background: {
+      main: '#808080'
+    }
   },
 });
 
 function App() {
 
   return (
-    <div className='App'>
+    <div className='App' style={{backgroundColor: '#DEE2E6'}}>
       <ThemeProvider theme={theme}>
         <AuthProvider>
           <Rotes />

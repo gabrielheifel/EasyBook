@@ -1,45 +1,39 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
+import { Box, IconButton, InputBase } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-const Search = styled('div') ({
-  position: 'relative',
-  borderRadius: '5px',
-  backgroundColor: 'white',
-  marginLeft: 0,
-  width: '40%',
-  height: '30px'
-});
+const SearchAppBar = ({setSearchInput}) => {
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue)
+  }  
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'primary',
-  paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-  width: '99%',
-}));
-
-export default function SearchAppBar() {
   return (
     <>
-      <Search>
-        <SearchIconWrapper>
-          <SearchIcon color='primary'/>
-        </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search…"
+      <Box>
+        <InputBase
+          sx={{ pl:1,backgroundColor:'#fff', borderRadius: '5px 0 0 5px' }}
+          placeholder="Search"
           inputProps={{ 'aria-label': 'search' }}
+          onChange={(e) => searchItems(e.target.value)}
         />
-      </Search>
+        <IconButton 
+          type="submit" 
+          sx={{ 
+            p:"4px",
+            backgroundColor:'#fff', 
+            borderRadius: '0 5px 5px 0',
+            "&hover": {
+              backgroundColor:'#edededb5'              
+            } 
+          }} 
+          aria-label="search"
+        >
+          <SearchIcon />
+        </IconButton>
+      </Box>
     </>        
   );
 }
+
+export default SearchAppBar;

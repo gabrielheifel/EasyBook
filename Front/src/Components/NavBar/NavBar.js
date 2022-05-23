@@ -13,7 +13,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SearchInput from '../SearchInput/SearchInput';
 import Logo from '../../images/logo.png';
 
-const NavBar = (props) => { 
+const NavBar = ({isUser, setSearchInput}) => { 
   const navigate = useNavigate();
   const {signed, logout} = useContext(AuthContext);
 
@@ -32,13 +32,13 @@ const NavBar = (props) => {
             <Button sx={{p:0}} onClick={() => navigate('/')}>
               <img src={Logo} alt="easy book logo" style={{height: '35px'}} />
             </Button>
-            {props.isUser 
-              ? <SearchInput />
+            {isUser 
+              ? <SearchInput setSearchInput={setSearchInput} />
               : <Typography variant="overline">
                   Administrador
                 </Typography>
             }
-            {props.isUser
+            {isUser
               ? signed
                   ? <div>
                       <Button 
@@ -56,7 +56,7 @@ const NavBar = (props) => {
                         size="small"
                         sx={{ marginRight: '10px'}}
                         style={{textDecoration: 'none', color:'#000'}}
-                        onClick={() => navigate('/login')}
+                        onClick={() => navigate('/user')}
                       >
                         Minha Conta  
                       </Button>

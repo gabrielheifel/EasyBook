@@ -4,92 +4,176 @@
       "id": 1,
       "title": "Book One",
       "price": "29.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Tensão e drama misturados em um livro",
+      "categoria": "terror",
+      "editora": "batata 2",
+      "estoque": 3
     },
     {
       "id": 2,
       "title": "Book Two",
       "price": "49.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Como ser melhor em suas ações",
+      "categoria": "culinaria",
+      "editora": "batata 2",
+      "estoque": 3
     },
     {
       "id": 3,
       "title": "Book Three",
       "price": "129.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Como ser melhor em suas ações",
+      "categoria": "culinaria",
+      "editora": "salada 3",
+      "estoque": 3
     },
     {
       "id": 4,
       "title": "Book Four",
       "price": "19.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Como ser melhor em suas ações",
+      "categoria": "culinaria",
+      "editora": "salada 3",
+      "estoque": 3
     },
     {
       "id": 5,
       "title": "Book Five",
       "price": "109.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Como ser melhor em suas ações",
+      "categoria": "administraçao",
+      "editora": "salada 3",
+      "estoque": 3
     },
     {
       "id": 6,
       "title": "Book Six",
       "price": "190.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Tensão e drama misturados em um livro",
+      "categoria": "administraçao",
+      "editora": "saraiva",
+      "estoque": 3
     },
     {
       "id": 7,
       "title": "Book Seven",
       "price": "190.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Tensão e drama misturados em um livro",
+      "categoria": "administraçao",
+      "editora": "saraiva",
+      "estoque": 3
     },
     {
       "id": 8,
       "title": "Book Eight",
       "price": "109.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Tensão e drama misturados em um livro",
+      "categoria": "biografia",
+      "editora": "saraiva",
+      "estoque": 3
     },
     {
       "id": 9,
       "title": "Book Nine",
       "price": "190.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Ação e aventura de tirar o folego",
+      "categoria": "biografia",
+      "editora": "saraiva",
+      "estoque": 3
     },
     {
       "id": 10,
       "title": "Book Ten",
       "price": "190.90",
-      "imageUrl": ""
+      "imageUrl": "img.png",
+      "sinopse": "Ação e aventura de tirar o folego",
+      "categoria": "biografia",
+      "editora": "globo",
+      "estoque": 3
+    },
+    {
+      "id": 11,
+      "title": "Book Eleven",
+      "price": "60.90",
+      "imageUrl": "img.png",
+      "sinopse": "Ação e aventura de tirar o folego",
+      "categoria": "autoajuda",
+      "editora": "batata 2",
+      "estoque": 3
     }
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Gabriel",
-      "email": "gabriel@gmail.com"
+      "email":"example@example.com",
+      "name":"example",
+      "password":"1234",
+      "idade":22,
+      "endereco":"rua 2",
+      "cidade": "pelotas",
+      "cep":"96.010-312",
+      "cpf": 323232,
+      "sexo": "masculino"
     },
-    {
-      "id": 2,
-      "name": "Heifel",
-      "email": "heifel@gmail.com"
-    },
-    {
-      "id": 3,
-      "name": "GH",
-      "email": "gh@gmail.com"
-    }
-  ],
-  "sessions": [
     {
       "email": "gabriel@gmail.com",
-      "password": "secret"
+      "name": "Gabriel",
+      "password":"4567",
+      "idade":24,
+      "endereco":"rua 2",
+      "cidade": "pelotas",
+      "cep":"96.010-312",
+      "cpf": 111111,
+      "sexo": "masculino"
     },
     {
       "email": "heifel@gmail.com",
-      "password": "123"
+      "name": "Heifel",
+      "password":"senha1",
+      "idade":18,
+      "endereco":"rua 2",
+      "cidade": "pelotas",
+      "cep":"96.010-312",
+      "cpf": 222222,
+      "sexo": "masculino"
     },
     {
-      "email": "admin",
-      "password": "admin"
+      "email": "gh@gmail.com",
+      "name": "GH",
+      "password":"10101",
+      "idade":32,
+      "endereco":"rua 2",
+      "cidade": "pelotas",
+      "cep":"96.010-312",
+      "cpf": 3333333,
+      "sexo": "masculino"
+    }
+  ],
+  "cpf":[
+    {
+      "cpf": 323232,
+      "isadm":true
+    },
+    {
+      "cpf": 111111,
+      "isadm":false
+    },
+    {
+      "cpf": 222222,
+      "isadm":false
+    },
+    {
+      "cpf": 3333333,
+      "isadm":true
     }
   ]
+  
 }

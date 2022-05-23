@@ -85,16 +85,16 @@ const ProductPage = (book) => {
                 Autor Name
               </Typography>
               <Box>
-                <StarIcon sx={{color: 'orange'}}/>
-                <StarIcon sx={{color: 'orange'}}/>
-                <StarIcon sx={{color: 'orange'}}/>
-                <StarIcon sx={{color: 'orange'}}/>
+                <StarIcon sx={{color: '#ffa500'}}/>
+                <StarIcon sx={{color: '#ffa500'}}/>
+                <StarIcon sx={{color: '#ffa500'}}/>
+                <StarIcon sx={{color: '#ffa500'}}/>
                 <StarOutlineIcon/>
               </Box>
             </Box>
             <Grid container spacing={2}>
               <Grid item>
-                <ButtonBase sx={{ width: 250, height: 350, backgroundColor:'orange' }}>
+                <ButtonBase sx={{ width: 250, height: 350, backgroundColor:'#ffa500' }}>
                   <Img alt="complex" src={imageUrl} />
                 </ButtonBase>
               </Grid>
@@ -136,7 +136,7 @@ const ProductPage = (book) => {
                     <Button 
                       startIcon={<AddShoppingCartOutlinedIcon/>}
                       sx={{
-                        backgroundColor: 'orange', 
+                        backgroundColor: '#ffa500', 
                         fontWeight: 600, 
                         pl: 3, pr: 3, ml: 1,
                         '&:hover': {
@@ -153,7 +153,7 @@ const ProductPage = (book) => {
           </Paper>
         </Box>
       </Container>
-      <Footer />
+      <Footer position="fixed" />
     </>
   );
 }

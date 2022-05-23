@@ -8,6 +8,7 @@ import Edit from '../pages/Edit/Edit';
 import Admin from '../pages/Admin/Admin';
 import HomePage from '../pages/HomePage/HomePage';
 import ProductPage from '../pages/ProductPage/ProductPage';
+import UserPage from '../pages/UserPage/UserPage';
 // import AppRouts from './app.routes';
 // import AdminRoutes from './admin.routes';
 
@@ -53,7 +54,14 @@ const routes = () => {
           } 
         />
         <Route path="*" element={<h1>404!</h1>} />
-
+        <Route 
+          path="/user" 
+          element={
+            <PrivateUser>
+              <UserPage />
+            </PrivateUser>
+          } 
+        />
         <Route 
           path="/edit-info" 
           element={
@@ -64,6 +72,7 @@ const routes = () => {
                 textfield2="Sobrenome"
                 textfield3="Data de Nascimento"
                 textfield4="Sexo"
+                navig="/user"
               />
             </PrivateUser>
           } 
@@ -73,11 +82,12 @@ const routes = () => {
           element={
             <PrivateUser>
               <Edit.Inputs4
-              description="Informações do Cartão"
+                description="Informações do Cartão"
                 textfield1="Nome do Cartão"
                 textfield2="Número do Cartão"
                 textfield3="Data de Vencimento"
                 textfield4="CVV"
+                navig="/user"
               />
             </PrivateUser>
           } 
@@ -91,7 +101,8 @@ const routes = () => {
                 description="Alterar E-mail"
                 textfield1="Novo E-mail"
                 textfield2="Confirmar novo E-mail"
-                />
+                navig="/user"
+              />
             </PrivateUser>
             } 
         />
@@ -100,10 +111,11 @@ const routes = () => {
           element={
             <PrivateUser>
               <Edit.Inputs2
-              isPassword={true}
-              description="Alterar Senha"
-              textfield1="Nova Senha"
-              textfield2="Confirmar nova Senha"
+                isPassword={true}
+                description="Alterar Senha"
+                textfield1="Nova Senha"
+                textfield2="Confirmar nova Senha"
+                navig="/user"
               />
             </PrivateUser>
           } 

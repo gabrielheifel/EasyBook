@@ -31,11 +31,11 @@ const Login = () => {
     <div id='login'>
       <NavBar color='primary' isUser={true} />
       <Categories color='secundary' />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" bgcolor="background.main">
         <Box 
           display="flex"
           justifyContent="center"
-          sx={{ p:4 }} 
+          sx={{ p:4, height: '75vh' }} 
         >    
           <form onSubmit={handleSubmit}>
           {/* <form> */}

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Box,
   Typography,
@@ -11,7 +12,8 @@ import Categories from '../../components/Categories/Categories';
 import Footer from '../../components/Footer/Footer';
 
 const Inputs4 = (props) => {
-  const { description, textfield1, textfield2, textfield3, textfield4 } = props;
+  const { description, textfield1, textfield2, textfield3, textfield4, navig } = props;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -68,6 +70,7 @@ const Inputs4 = (props) => {
               size="small"
               sx={{mb: 1}}
               style={{color: 'white'}}
+              onClick={() => navigate(`${navig}`)}
             >
               Salvar
             </Button>
@@ -80,7 +83,8 @@ const Inputs4 = (props) => {
 }
 
 const Inputs2 = (props) => {
-  const { isPassword, description, textfield1, textfield2 } = props;
+  const { isPassword, description, textfield1, textfield2, navig } = props;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -143,6 +147,7 @@ const Inputs2 = (props) => {
               size="small"
               sx={{mb: 1}}
               style={{color: 'white'}}
+              onClick={() => navigate(`${navig}`)}
             >
               Salvar
             </Button>
