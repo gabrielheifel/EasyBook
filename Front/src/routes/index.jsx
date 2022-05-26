@@ -9,6 +9,7 @@ import Admin from '../pages/Admin/Admin';
 import HomePage from '../pages/HomePage/HomePage';
 import ProductPage from '../pages/ProductPage/ProductPage';
 import UserPage from '../pages/UserPage/UserPage';
+import Favorites from '../pages/Favorites/Favorites';
 // import AppRouts from './app.routes';
 // import AdminRoutes from './admin.routes';
 
@@ -44,15 +45,6 @@ const routes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product" element={<ProductPage />} />
-        
-        <Route 
-          path="/admin" 
-          element={
-            <PrivateAdmin>
-              <Admin />
-            </PrivateAdmin>
-          } 
-        />
         <Route path="*" element={<h1>404!</h1>} />
         <Route 
           path="/user" 
@@ -60,6 +52,22 @@ const routes = () => {
             <PrivateUser>
               <UserPage />
             </PrivateUser>
+          } 
+        />
+        <Route 
+          path="/favorites" 
+          element={
+            <PrivateUser>
+              <Favorites />
+            </PrivateUser>
+          } 
+        />      
+        <Route 
+          path="/admin" 
+          element={
+            <PrivateAdmin>
+              <Admin />
+            </PrivateAdmin>
           } 
         />
         <Route 

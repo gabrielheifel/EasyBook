@@ -15,7 +15,7 @@ import Logo from '../../images/logo.png';
 
 const NavBar = ({isUser, setSearchInput}) => { 
   const navigate = useNavigate();
-  const {signed, logout} = useContext(AuthContext);
+  const {signed, logout, isAdmin} = useContext(AuthContext);
 
   const handleLogout = () => {
     logout();
@@ -32,15 +32,23 @@ const NavBar = ({isUser, setSearchInput}) => {
             <Button sx={{p:0}} onClick={() => navigate('/')}>
               <img src={Logo} alt="easy book logo" style={{height: '35px'}} />
             </Button>
-            {isUser 
-              ? <SearchInput setSearchInput={setSearchInput} />
-              : <Typography variant="overline">
+            {isAdmin 
+              ? <Typography variant="overline">
                   Administrador
                 </Typography>
+              : <SearchInput setSearchInput={setSearchInput} />
             }
-            {isUser
-              ? signed
-                  ? <div>
+            {signed
+              ? isAdmin
+                  ? <Button 
+                      variant='text' 
+                      color="inherit" 
+                      size="small"
+                      onClick={handleLogout}
+                    >
+                      Sair
+                    </Button>
+                  : <div>
                       <Button 
                         variant='text' 
                         color="inherit" 
@@ -67,41 +75,33 @@ const NavBar = ({isUser, setSearchInput}) => {
                         <ShoppingCartOutlinedIcon/>
                       </IconButton>
                     </div>
-                  : <div>
-                      <Button 
-                        variant='text' 
-                        color="inherit" 
-                        size="small"
-                        sx={{marginRight: '5px'}}
-                        onClick={() => navigate('/register')}
-                      >
-                        Registrar
-                      </Button>
-                      <Button 
-                        variant='contained'
-                        color="inherit" 
-                        size="small"
-                        sx={{ marginRight: '10px'}}
-                        style={{textDecoration: 'none', color:'#000'}}
-                        onClick={() => navigate('/login')}
-                      >
-                        Login
-                      </Button>
-                      <IconButton color="inherit" >
-                        <FavoriteBorderIcon/>
-                      </IconButton>
-                      <IconButton color="inherit" >
-                        <ShoppingCartOutlinedIcon/>
-                      </IconButton>
-                    </div>
-              : <Button 
-                  variant='text' 
-                  color="inherit" 
-                  size="small"
-                  onClick={handleLogout}
-                >
-                  Sair
-                </Button> 
+              : <div>
+                  <Button 
+                    variant='text' 
+                    color="inherit" 
+                    size="small"
+                    sx={{marginRight: '5px'}}
+                    onClick={() => navigate('/register')}
+                  >
+                    Registrar
+                  </Button>
+                  <Button 
+                    variant='contained'
+                    color="inherit" 
+                    size="small"
+                    sx={{ marginRight: '10px'}}
+                    style={{textDecoration: 'none', color:'#000'}}
+                    onClick={() => navigate('/login')}
+                  >
+                    Login
+                  </Button>
+                  <IconButton color="inherit" >
+                    <FavoriteBorderIcon/>
+                  </IconButton>
+                  <IconButton color="inherit" >
+                    <ShoppingCartOutlinedIcon/>
+                  </IconButton>
+                </div>
             }
           </Toolbar>
         </AppBar>

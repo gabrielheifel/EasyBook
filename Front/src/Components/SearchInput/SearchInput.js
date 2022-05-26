@@ -10,9 +10,9 @@ const SearchAppBar = ({setSearchInput}) => {
 
   return (
     <>
-      <Box>
+      <Box sx={{width:'350px'}}>
         <InputBase
-          sx={{ pl:1,backgroundColor:'#fff', borderRadius: '5px 0 0 5px' }}
+          sx={{ pl:1,backgroundColor:'#fff', borderRadius: '5px 0 0 5px', width:'80%' }}
           placeholder="Search"
           inputProps={{ 'aria-label': 'search' }}
           onChange={(e) => searchItems(e.target.value)}
