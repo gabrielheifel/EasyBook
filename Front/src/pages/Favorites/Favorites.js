@@ -16,12 +16,12 @@ const Favorites = () => {
           flexDirection='column'
           justifyContent="center"
           alignItems='center'
-          sx={{ p: 4}} 
+          sx={{p: 4}} 
         >
           <Carousel title={'Favoritos'}/>
         </Box>
       </Container>
-      <Footer position='static'/>
+      <Footer/>
     </div>
   )
 }

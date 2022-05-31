@@ -4,9 +4,7 @@ import {
   Typography
 } from '@mui/material';
 
-const Footer = (props) => {
-
-  const {position} = props;
+const Footer = () => {
 
   return (
     <>
@@ -15,13 +13,14 @@ const Footer = (props) => {
         alignItems="center"
         justifyContent="center"
         sx={{ 
-          position: {position},
+          // position: {position},
+          position: 'absolute',
           bottom: 0,
           flex:1,
           mt: 4, 
           width: '100%', 
           height:'100px', 
-          bgcolor: '#343A40'
+          bgcolor: '#343A40',
         }}
       >
         <Typography

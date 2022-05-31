@@ -68,10 +68,16 @@ const NavBar = ({isUser, setSearchInput}) => {
                       >
                         Minha Conta  
                       </Button>
-                      <IconButton color="inherit" >
+                      <IconButton 
+                        color="inherit" 
+                        onClick={() => navigate('/favorites')} 
+                      >
                         <FavoriteBorderIcon/>
                       </IconButton>
-                      <IconButton color="inherit" >
+                      <IconButton 
+                        color="inherit" 
+                        onClick={() => navigate('/cart')} 
+                      >
                         <ShoppingCartOutlinedIcon/>
                       </IconButton>
                     </div>
@@ -95,10 +101,16 @@ const NavBar = ({isUser, setSearchInput}) => {
                   >
                     Login
                   </Button>
-                  <IconButton color="inherit" >
+                  <IconButton 
+                    color="inherit" 
+                    onClick={() => navigate('/favorites')} 
+                  >
                     <FavoriteBorderIcon/>
                   </IconButton>
-                  <IconButton color="inherit" >
+                  <IconButton 
+                    color="inherit" 
+                    onClick={() => navigate('/cart')}
+                  >
                     <ShoppingCartOutlinedIcon/>
                   </IconButton>
                 </div>

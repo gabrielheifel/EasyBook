@@ -1,42 +1,53 @@
 import React, { useContext, useState } from 'react';
 import AuthContext from '../../contexts/auth';
-import { Route, Routes } from 'react-router-dom';
+// import { Route, Routes } from 'react-router-dom';
 import {
   Card,
   CardContent,
   CardMedia,
   Typography,
   IconButton,
-  Checkbox, 
   Button, 
   CardActionArea, 
   CardActions,
-  Box
+  Box,
+  Rating
 } from '@mui/material';
-import StarIcon from '@mui/icons-material/Star';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import CheckIcon from '@mui/icons-material/Check';
-import ProductPage from '../../pages/ProductPage/ProductPage';
+// import ProductPage from '../../pages/ProductPage/ProductPage';
 import Modal from '../Modal/Modal';
+import { CartFavoritesContext } from '../../contexts/userContext';
+import { Tooltip } from '@material-ui/core';
 
 const CardProduct = ({product}) => {
   const { id, imageUrl, title, price } = product;
   const {signed} = useContext(AuthContext);
+  const {helloWorld} = useContext(CartFavoritesContext);
+
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
   const [description, setDescription] = useState();
   const [color, setColor] = useState();
   const [isAdded, setIsAdded] = useState(false);
+  
+  const handleOpen = () => setOpen(true);
 
-  const addCart = () => {
+
+  //usar snackbar MUI
+  const handleCart = () => {
     if(signed) {
       if(isAdded) {
+        // handle remove to cart
+        
+
         setIsAdded(false)
         setDescription('Removido do Carrinho');
         setColor('green');
         handleOpen();
       } else {
+        //handle add to cart
+        console.log('hello world do context, ', helloWorld)
+
         setIsAdded(true)
         setDescription('Adicionado ao Carrinho');
         setColor('green');
@@ -69,13 +80,7 @@ const CardProduct = ({product}) => {
             >
               {title}
             </Typography>
-            <Box>
-              <StarIcon sx={{width:'20px', color: '#ffa500'}}/>
-              <StarIcon sx={{width:'20px', color: '#ffa500'}}/>
-              <StarIcon sx={{width:'20px', color: '#ffa500'}}/>
-              <StarIcon sx={{width:'20px', color: '#ffa500'}}/>
-              <StarOutlineIcon sx={{width:'20px'}}/>
-            </Box>
+            <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
             <Typography variant="body2">
               R$ {price}
             </Typography>
@@ -86,23 +91,19 @@ const CardProduct = ({product}) => {
           <Button size="small" variant='contained' sx={{borderRadius: 4}}>
             Saiba mais
           </Button>
-          <IconButton 
-            aria-label="add to cart"
-            onClick={addCart}  
-          >
-            {signed 
-              ? isAdded
-                ? <CheckIcon sx={{color: 'green'}} />
+          <Tooltip title='Adicionar ao carrinho'>
+            <IconButton 
+              aria-label="add to cart"
+              onClick={handleCart}  
+            >
+              {signed 
+                ? isAdded
+                  ? <CheckIcon sx={{color: 'green'}} />
+                  : <AddShoppingCartIcon />
                 : <AddShoppingCartIcon />
-              : <AddShoppingCartIcon />
-            }
-            {/* <Checkbox 
-              sx={{p:0, left:0}} 
-              icon={<AddShoppingCartIcon />} 
-              checkedIcon={<CheckIcon sx={{color: 'green'}} />} 
-            /> */}
-
-          </IconButton>
+              }
+            </IconButton>
+          </Tooltip>
         </CardActions>
       </Card>
       <Modal open={open} setOpen={setOpen} description={description} color={color} />

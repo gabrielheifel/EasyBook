@@ -43,10 +43,9 @@ const HomePage = () => {
   },[searchInput])
 
   return (
-    <div className='main'>
+    <div>
       <NavBar 
         color='primary' 
-        isUser={true} 
         setSearchInput={setSearchInput} 
       />
       <Categories color='secundary' />

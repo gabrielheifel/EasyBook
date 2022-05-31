@@ -45,7 +45,7 @@ export const AuthProvider = ({children}) => {
     if(password === 'secret') {
       setUser(loggedUser);
       setIsAdmin(false);
-      navigate('/user');
+      navigate('/');
     };
     if(email === 'admin' && password === 'admin') {
       setUser(loggedUser);

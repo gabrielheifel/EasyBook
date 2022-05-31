@@ -70,7 +70,7 @@ const Adm = () => {
           </Grid>
         </Box>
       </Container>
-      <Footer position='fixed' />
+      <Footer />
     </>
   )
 }

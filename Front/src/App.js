@@ -2,6 +2,8 @@ import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Rotes from './routes';
 import {AuthProvider} from './contexts/auth';
+import './style.css';
+import { CartFavoritesProvider } from './contexts/userContext';
 
 const theme = createTheme({
   palette: {
@@ -26,10 +28,12 @@ const theme = createTheme({
 function App() {
 
   return (
-    <div className='App' style={{backgroundColor: '#DEE2E6'}}>
+    <div className='App'>
       <ThemeProvider theme={theme}>
         <AuthProvider>
-          <Rotes />
+          <CartFavoritesProvider>
+            <Rotes />
+          </CartFavoritesProvider>
         </AuthProvider>
       </ThemeProvider>
     </div>
