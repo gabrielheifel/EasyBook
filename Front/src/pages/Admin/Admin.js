@@ -7,8 +7,11 @@ import {
 } from '@mui/material'
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Adm = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <NavBar color='primary' isUser={false}/>
@@ -30,6 +33,7 @@ const Adm = () => {
                 size="large"
                 sx={{mb: 1, width: '250px', height: '130px', borderRadius: 8}}
                 style={{color: 'white'}}
+                onClick={()=>navigate('/createproduct')}
               >
                 Adicionar Produto
               </Button>
@@ -52,6 +56,7 @@ const Adm = () => {
                 size="large"
                 sx={{mb: 1, width: '250px', height: '130px', borderRadius: 8}}
                 style={{color: 'white'}}
+                onClick={()=>navigate('/editproducts')}
               >
                 Editar Produto
               </Button>

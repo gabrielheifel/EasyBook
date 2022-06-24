@@ -17,7 +17,7 @@ const Inputs4 = (props) => {
 
   return (
     <>
-      <NavBar color='primary' isUser={true} />
+      <NavBar color='primary' />
       <Categories color='secundary' />
       <Container maxWidth="xl">
         <Box 
@@ -88,7 +88,7 @@ const Inputs2 = (props) => {
 
   return (
     <>
-      <NavBar color='primary' isUser={true} />
+      <NavBar color='primary' />
       <Categories color='secundary' />
       <Container maxWidth="xl">
         <Box 

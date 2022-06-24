@@ -11,6 +11,7 @@ import ProductPage from '../pages/ProductPage/ProductPage';
 import UserPage from '../pages/UserPage/UserPage';
 import Favorites from '../pages/Favorites/Favorites';
 import Cart from '../pages/Cart/Cart';
+import AdmProducts from '../pages/AdmProducts/AdmProducts';
 // import AppRouts from './app.routes';
 // import AdminRoutes from './admin.routes';
 
@@ -81,6 +82,22 @@ const routes = () => {
           element={
             <PrivateAdmin>
               <Admin />
+            </PrivateAdmin>
+          } 
+        />
+        <Route 
+          path="/editproducts" 
+          element={
+            <PrivateAdmin>
+              <AdmProducts typebtn="edit"/>
+            </PrivateAdmin>
+          } 
+        />
+        <Route 
+          path="/createproduct" 
+          element={
+            <PrivateAdmin>
+              <AdmProducts typebtn="create"/>
             </PrivateAdmin>
           } 
         />

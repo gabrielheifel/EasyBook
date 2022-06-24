@@ -33,9 +33,14 @@ const NavBar = ({isUser, setSearchInput}) => {
               <img src={Logo} alt="easy book logo" style={{height: '35px'}} />
             </Button>
             {isAdmin 
-              ? <Typography variant="overline">
+              ? <Button 
+                  variant='text' 
+                  color="inherit" 
+                  size="small"
+                  onClick={() => navigate('/admin')}
+                >
                   Administrador
-                </Typography>
+                </Button>
               : <SearchInput setSearchInput={setSearchInput} />
             }
             {signed
