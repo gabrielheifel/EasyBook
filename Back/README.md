@@ -6,7 +6,7 @@
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e (opcional)[Yarn](https://yarnpkg.com/).
-Para facilitar o uso é recomendado ter o [Docker](https://www.docker.com/), caso não queira utilizar o docker, é necessário ter o [Postgres](https://www.postgresql.org/) e o 
+Para facilitar o uso é recomendado ter o [Docker](https://www.docker.com/), é necessário ter o [Postgres](https://www.postgresql.org/) e o 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 🎲 Rodando o Back End (servidor)
