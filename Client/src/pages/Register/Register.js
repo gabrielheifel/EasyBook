@@ -9,12 +9,14 @@ import {
 import NavBar from '../../components/NavBar/NavBar';
 import Categories from '../../components/Categories/Categories';
 import Footer from '../../components/Footer/Footer';
+import axios from 'axios';
 
+const baseUrl = 'http://localhost:5432/users'
 
 const Register = () => {
   return (
     <>
-      <NavBar color='primary' isUser={true} />
+      <NavBar color='primary' />
       <Categories color='secundary' />
       <Container maxWidth="xl">
         <Box 

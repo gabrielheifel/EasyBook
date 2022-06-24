@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      estoque:{
+      titulo:{
         allownull:false,
         type: Sequelize.STRING
       },
@@ -17,11 +17,27 @@ module.exports = {
         allownull:false,
         type: Sequelize.STRING
       },
-      categoria:{
+      autor:{
         allownull:false,
         type: Sequelize.STRING
       },
       editora:{
+        allownull:false,
+        type: Sequelize.STRING
+      },
+      imagem:{
+        allownull:false,
+        type: Sequelize.STRING
+      },
+      preco:{
+        allownull:false,
+        type: Sequelize.INTEGER
+      },
+      estoque:{
+        allownull:false,
+        type: Sequelize.INTEGER
+      },
+      categoria:{
         allownull:false,
         type: Sequelize.STRING
       },

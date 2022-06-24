@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Box,
@@ -13,6 +13,20 @@ import Footer from '../../components/Footer/Footer';
 
 const AdmProducts = (props) => {
   const navigate = useNavigate();
+  const [values, setValues] = useState();
+
+  const handleChangeValues = value => {
+    setValues(prevValue => ({
+      ...prevValue,
+      [value.target.name]: value.target.value,
+    }))
+  }
+
+  const handleCreateProduct = () => {
+    console.log(values)
+
+    // usar snackbar e navigate to /admin
+  }
 
   return (
     <>
@@ -27,23 +41,29 @@ const AdmProducts = (props) => {
         >
             <TextField 
               label="Título"
+              name="titulo"
               variant="outlined"
               size='small'
               sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               label="Sinopse" 
+              name="sinopse"
               variant="outlined"
               size='small'
               multiline
               rows={4}
               sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               label="Autor" 
+              name="autor"
               variant="outlined"
               size='small'
               sx={{mb: 1, width: '50%'}}
+              onChange={handleChangeValues}
             />
             <Box 
               display= 'flex'
@@ -51,9 +71,11 @@ const AdmProducts = (props) => {
             >
               <TextField 
                 label="Editora"
+                name="editora"
                 variant="outlined"
                 size='small'
                 sx={{mb: 2, width: '50%'}}
+                onChange={handleChangeValues}
               />
               <input
                 accept="image/*"
@@ -74,12 +96,26 @@ const AdmProducts = (props) => {
               justifyContent='space-between'
               sx={{mb: 3}}
             >
-              <TextField type="number" label="Preço em R$" size='small'/>
-              <TextField type="number" label="Quantidade" size='small'/>
+              <TextField 
+                type="number" 
+                label="Preço em R$" 
+                name="preco"
+                size='small'
+                onChange={handleChangeValues}
+              />
+              <TextField 
+                type="number" 
+                label="Quantidade" 
+                name="estoque"
+                size='small'
+                onChange={handleChangeValues}
+              />
               <TextField 
                 label="Categoria"
+                name="categoria"
                 variant="outlined"
                 size='small'
+                onChange={handleChangeValues}
               />
             </Box>
 
@@ -108,7 +144,6 @@ const AdmProducts = (props) => {
                 >
                   Salvar
                 </Button>
-
               </Box>
             }
             {props.typebtn==='create' &&
@@ -122,7 +157,7 @@ const AdmProducts = (props) => {
                   size="small"
                   sx={{mb: 1, width: '20%'}}
                   style={{color: 'white'}}
-                  // onClick={() => navigate(`${navig}`)}
+                  onClick={() => handleCreateProduct()}
                 >
                   Adicionar Produto
                 </Button>
