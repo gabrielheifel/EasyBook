@@ -47,10 +47,27 @@ class UserController {
      }
     async delete(req, res) {
         try {
+            const userCpf = await User.findOne(
+                {
+                    attributes: [
+                        'cpf'
+                    ],
+                    where: {
+                        id: req.userId
+                    }
+                }
+            )
             const user = await User.destroy(
                 {
                     where: {
                         id: req.userId
+                    }
+                }
+            )
+            const cpf = await Cpf.destroy(
+                {
+                    where: {
+                        cpf: userCpf.dataValues.cpf 
                     }
                 }
             )

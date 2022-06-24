@@ -7,7 +7,7 @@ import NavBar from '../../components/NavBar/NavBar'
 
 const Favorites = () => {
   return (
-    <div>
+    <>
       <NavBar color='primary' />
       <Categories color='secundary' />
       <Container maxWidth="xl">
@@ -22,7 +22,7 @@ const Favorites = () => {
         </Box>
       </Container>
       <Footer/>
-    </div>
+    </>
   )
 }
 

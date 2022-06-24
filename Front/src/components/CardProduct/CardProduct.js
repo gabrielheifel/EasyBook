@@ -23,7 +23,7 @@ import { Tooltip } from '@material-ui/core';
 const CardProduct = ({product}) => {
   const { id, imageUrl, title, price } = product;
   const {signed} = useContext(AuthContext);
-  const {helloWorld} = useContext(CartFavoritesContext);
+  const {handleAddItemToCart, handleRemoveItemToCart} = useContext(CartFavoritesContext);
 
   const [open, setOpen] = useState(false);
   const [description, setDescription] = useState();
@@ -32,13 +32,12 @@ const CardProduct = ({product}) => {
   
   const handleOpen = () => setOpen(true);
 
-
   //usar snackbar MUI
   const handleCart = () => {
     if(signed) {
       if(isAdded) {
         // handle remove to cart
-        
+        handleRemoveItemToCart(id)
 
         setIsAdded(false)
         setDescription('Removido do Carrinho');
@@ -46,7 +45,7 @@ const CardProduct = ({product}) => {
         handleOpen();
       } else {
         //handle add to cart
-        console.log('hello world do context, ', helloWorld)
+        handleAddItemToCart(imageUrl, title, price)
 
         setIsAdded(true)
         setDescription('Adicionado ao Carrinho');

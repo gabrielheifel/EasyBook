@@ -1,4 +1,6 @@
-<h1 align="center">Sistema de produtos</h1>
+<h1 align="center">Teste nodejs LuizaLabs/Magalu</h1>
+
+<p align="center">Sistema de produtos favoritos</p>
 
 ### Pré-requisitos
 

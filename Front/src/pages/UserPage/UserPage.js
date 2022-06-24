@@ -17,7 +17,7 @@ const UserPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <>
       <NavBar color='primary' isUser={true} />
       <Categories color='secundary' />
       <Container maxWidth="xl">
@@ -154,7 +154,7 @@ const UserPage = () => {
         </Box>
       </Container>
       <Footer position='fixed'/>
-    </div>
+    </>
   )
 }
 

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import {CartFavoritesContext} from '../../contexts/userContext';
 import { 
   Box, 
   Button, 
@@ -16,16 +17,19 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const IconX = {
   position: 'absolute', 
-  top:-15, 
-  right:-15,
-  backgroundColor:'red',
+  top: 0,
+  right: 0,
+  backgroundColor:'#808080',
   p:0.5,
   zIndex: 9
 }
 
-const CartItem = () => {
+const CartItem = ({id, title, price}) => {
+  // const {id, imageUrl, title, price} = product
+  const {handleRemoveItemToCart} = useContext(CartFavoritesContext)
+
   return (
-    <Card sx={{ width: 160, flex: 'none', position: 'relative'}}>
+    <Card sx={{width: 160, flex: 'none', position: 'relative'}}>
       <CardActionArea sx={{backgroundColor: '#C4C8CC'}}>
         <CardMedia
           component="img"
@@ -41,12 +45,11 @@ const CartItem = () => {
             component="div"
             sx={{fontWeight: 'bold', mb: 0}}
           >
-            {/* {title} */}
-            title
+            {title}
           </Typography>
           <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
           <Typography variant="body2">
-            R$ 
+            R$ {price}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -56,8 +59,11 @@ const CartItem = () => {
           Saiba mais
         </Button>
       </CardActions>
-      <IconButton sx={IconX}>
-        <CloseIcon color='inherit' />    
+      <IconButton 
+        sx={IconX}
+        onClick={() => handleRemoveItemToCart(id)}  
+      >
+        <CloseIcon sx={{fontSize: '1rem'}} />    
       </IconButton>
     </Card>
   )

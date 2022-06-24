@@ -13,13 +13,13 @@ const productController = require("./app/controllers/Product/Product")
 routes.post("/signin", SessionController.store)
 routes.post("/signup", UserController.store)
 
-// product
+routes.use(authMiddleware)
+
+// rotas privadas do product
 routes.post("/addproduct", productController.store)
 routes.get("/listallproduct", productController.listAll) 
 routes.delete("/deleteproduct/:id", productController.delete)
 routes.put("/updateproduct", productController.update)
-
-routes.use(authMiddleware)
 
 
 //rotas privadas do usuário

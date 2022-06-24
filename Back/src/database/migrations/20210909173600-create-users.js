@@ -21,22 +21,18 @@ module.exports = {
 
       idade: {
         type: Sequelize.INTEGER,
-        unique: true,
         allowNull: false
       },
       endereco: {
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false
       },
       cidade: {
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false
       },
       cep: {
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false
       },
       cpf: {
@@ -52,7 +48,6 @@ module.exports = {
       },
       sexo: {
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false
       },
       password_hash: {

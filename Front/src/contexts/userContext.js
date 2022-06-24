@@ -10,6 +10,7 @@ export const CartFavoritesProvider = ({ children }) => {
   const handleAddItemToCart = (url, name, price) => {
     const itemObject = { url, name, price };
     setCart([...cart, itemObject]);
+    console.log(cart)
   }
 
   const handleRemoveItemToCart = (clickedItemIndex) => {
