@@ -3,16 +3,14 @@ const { Produto } = require('../../models')
 class productController {
 
     async store(req, res) {
-
         try {
             const product = await Produto.create(req.body)
+            console.log(res.json(product))
             return res.json(product);
-
 
         } catch (error) {
             return res.status(404).json({ message: "Invalid data." })
         }
-
     }
     async listAll(req, res) {
         try {
@@ -59,6 +57,5 @@ class productController {
             return res.status(401).json({ message: "Error, invalid data" })
         }
     }
-
 }
 module.exports = new productController()
