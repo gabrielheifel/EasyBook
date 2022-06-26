@@ -5,11 +5,11 @@ export const api = axios.create({
   baseURL: 'http://localhost:3001/'
 });
 
-export const createSession = async (email, password) => {
-  return api.post('/sessions', {email, password})
-}
+// export const createSession = async (email, password) => {
+//   return api.post('/sessions', {email, password})
+// }
 
-export const createSearch = async (input) => {
+// export const createSearch = async (input) => {
   
-  return api.get('/books/?title=')
-}
+//   return api.get('/books/?title=')
+// }

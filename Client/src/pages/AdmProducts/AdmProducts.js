@@ -36,6 +36,7 @@ const AdmProducts = (props) => {
       estoque: values.estoque,
       categoria: values.categoria
     }).then((res) => {
+      // alert(res.status)
       console.log(res)
     })
 

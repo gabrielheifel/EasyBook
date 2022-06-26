@@ -5,7 +5,6 @@ require("dotenv").config({
 const express = require("express");
 const cors = require("cors");
 
-
 class AppController {
   constructor() {
     this.express = express()
