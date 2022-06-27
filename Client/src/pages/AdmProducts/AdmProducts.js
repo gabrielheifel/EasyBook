@@ -1,23 +1,36 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { forwardRef, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import { 
   Box,
-  Typography,
   TextField,
   Container,  
-  Button
+  Button,
+  Stack,
+  Snackbar
 } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import NavBar from '../../components/NavBar/NavBar';
 import Categories from '../../components/Categories/Categories';
 import Footer from '../../components/Footer/Footer';
-// import axios from 'axios';
 import { api } from '../../services/api';
 
-// const baseURL = 'http://localhost:3000';
-
 const AdmProducts = (props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [values, setValues] = useState();
+  const [open, setOpen] = useState(false);
+  const [severity, setSevetiry] = useState();
+  const [message, setMessage] = useState();
+
+  const Alert = forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
 
   const handleChangeValues = value => {
     setValues(prevValue => ({
@@ -27,20 +40,26 @@ const AdmProducts = (props) => {
   }
 
   const handleCreateProduct = () => {
-    api.post('addproduct', {
-      titulo: values.titulo,
-      sinopse: values.sinopse,
-      autor: values.autor,
-      editora: values.editora,
-      preco: values.preco,
-      estoque: values.estoque,
-      categoria: values.categoria
-    }).then((res) => {
-      // alert(res.status)
-      console.log(res)
-    })
-
-    // usar snackbar e navigate to /admin
+    try {
+      api.post("addproduct", {
+        titulo: values.titulo,
+        sinopse: values.sinopse,
+        autor: values.autor,
+        editora: values.editora,
+        preco: values.preco,
+        estoque: values.estoque,
+        categoria: values.categoria
+      }).then((res) => {
+        console.log(res) 
+      })
+      setOpen(true);
+      setSevetiry("success");
+      setMessage("Dados envidados!");
+    } catch (e) {
+      setOpen(true);
+      setSevetiry("error");
+      setMessage("Error!");
+    }
   }
 
   return (
@@ -145,7 +164,7 @@ const AdmProducts = (props) => {
                 size="small"
                 sx={{mb: 1, width: '20%'}}
                 style={{color: 'white'}}
-                // onClick={() => navigate(`${navig}`)}
+                // onClick={() => handleDeleteProduct()}
               >
                 Excluir
               </Button>
@@ -155,7 +174,7 @@ const AdmProducts = (props) => {
                 size="small"
                 sx={{mb: 1, width: '20%'}}
                 style={{color: 'white'}}
-                // onClick={() => navigate(`${navig}`)}
+                // onClick={() => handleEditProduct()}
               >
                 Salvar
               </Button>
@@ -180,6 +199,15 @@ const AdmProducts = (props) => {
           }
         </Box>
       </Container>
+
+      <Stack spacing={2} sx={{ width: '100%' }}>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
+            {message}
+          </Alert>
+        </Snackbar>
+      </Stack>
+
       <Footer />
     </>
   )

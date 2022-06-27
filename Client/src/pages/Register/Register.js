@@ -1,19 +1,75 @@
-import React from 'react'
+import React, { forwardRef, useState } from 'react'
 import { 
   Box,
   Typography,
   Container,
   TextField,
   Button,
+  Stack,
+  Snackbar,
 } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import NavBar from '../../components/NavBar/NavBar';
 import Categories from '../../components/Categories/Categories';
 import Footer from '../../components/Footer/Footer';
-import axios from 'axios';
+import { api } from '../../services/api';
 
-const baseUrl = 'http://localhost:5432/users'
 
 const Register = () => {
+  const [values, setValues] = useState();
+  const [open, setOpen] = useState(false);
+  const [severity, setSevetiry] = useState();
+  const [message, setMessage] = useState();
+
+  const Alert = forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const handleChangeValues = value => {
+    setValues(prevValue => ({
+      ...prevValue,
+      [value.target.name]: value.target.value,
+    }))
+    console.log(values)
+  }
+
+  const handleCreateUser = () => {
+
+    try {
+      if(values.senha1 === values.senha2) {
+        api.post("signup", {
+          name: values.name,
+          sobremone: values.sobrenome,
+          cpf: values.cpf,
+          nascimento: values.nascimento,
+          sexo: values.sexo,
+          email: values.email,
+          senha: values.senha1
+        }).then((res) => {
+          console.log(res) 
+        })
+        setOpen(true);
+        setSevetiry("success");
+        setMessage("Dados envidados!");
+      } else {
+        setOpen(true);
+        setSevetiry("error");
+        setMessage("Senhas diferentes!");
+      }
+    } catch (e) {
+      setOpen(true);
+      setSevetiry("error");
+      setMessage("Error!");
+    }
+  }
+
   return (
     <>
       <NavBar color='primary' />
@@ -47,53 +103,76 @@ const Register = () => {
             <TextField 
               // id="outlined-basic"
               label="Nome" 
+              name="name"
               variant="outlined"
               size='small'
               sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               // id="outlined-basic" 
-              label="Sobrenome" 
+              label="Sobrenome"
+              name="sobrenome"
               variant="outlined"
               size='small'
               sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               // id="outlined-basic" 
-              label="Data de Nascimento" 
+              label="CPF"
+              name="cpf"
               variant="outlined"
               size='small'
               sx={{mb: 1}}
+              onChange={handleChangeValues}
+            />
+            <TextField 
+              // id="outlined-basic" 
+              label="Data de Nascimento"
+              name="nascimento" 
+              variant="outlined"
+              size='small'
+              sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               // id="outlined-basic" 
               label="Sexo" 
+              name="sexo"
               variant="outlined"
               size='small'
               sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               // id="outlined-basic" 
-              label="E-mail" 
+              label="E-mail"
+              name="email" 
               variant="outlined"
               size='small'
               sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               // id="outlined-basic" 
               label="Senha"
+              name="password1"
               type='password' 
               variant="outlined"
               size='small'
               sx={{mb: 1}}
+              onChange={handleChangeValues}
             />
             <TextField 
               // id="outlined-basic" 
-              label="Insira senha novamente" 
+              label="Insira senha novamente"
+              name="password2" 
               type='password' 
               variant="outlined"
               size='small'
               sx={{mb: 3}}
+              onChange={handleChangeValues}
             />
             <Button 
               variant='contained'
@@ -101,12 +180,21 @@ const Register = () => {
               size="small"
               sx={{mb: 1}}
               style={{color: 'white'}}
+              onClick={() => handleCreateUser()}
             >
               Registrar
             </Button>
           </Box>
         </Box>
       </Container>
+
+      <Stack spacing={2} sx={{ width: '100%' }}>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
+            {message}
+          </Alert>
+        </Snackbar>
+      </Stack>
       <Footer/>
     </>
   )

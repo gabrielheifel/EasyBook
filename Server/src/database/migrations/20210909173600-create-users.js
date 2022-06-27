@@ -13,13 +13,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      sobrenome: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       email: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false
       },
-
-      idade: {
+      nascimento: {
         type: Sequelize.INTEGER,
         allowNull: false
       },

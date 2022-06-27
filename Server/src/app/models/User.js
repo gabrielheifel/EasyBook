@@ -6,7 +6,8 @@ const jwt = require('jsonwebtoken')
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         name: DataTypes.STRING,
-        idade: DataTypes.INTEGER,
+        sobrenome: DataTypes.STRING,
+        nascimento: DataTypes.INTEGER,
         endereco:DataTypes.STRING,
         cidade: DataTypes.STRING,
         cep:DataTypes.STRING,

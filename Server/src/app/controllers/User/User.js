@@ -13,7 +13,7 @@ class UserController {
                 return res.status(401).json({ message: "invalid email" })
             }
         } catch (error) {
-            return res.status(401).json({ message: "Error, data invalid." })
+            return res.status(401).json({ message: "Error, data invalid." })            
         }
     }
     async listAlll(req, res) {
