@@ -2,8 +2,6 @@
   "name": "produtos",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/vagnersampaio92/produtos.git",
-  "author": "vagnersampaio <vagnersampaio92@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "node src/server.js",
